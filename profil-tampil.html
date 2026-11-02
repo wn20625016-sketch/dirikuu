@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Pinky Profile 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+ font-family:'Cormorant Garamond',serif;
+ color:#75405a;min-height:100vh;overflow-x:hidden;
+ background:radial-gradient(circle at 10% 20%,white 0,transparent 25%),linear-gradient(135deg,#ffe1ee,#ffc5df,#fff0f7);
+}
+nav{position:relative;z-index:10;padding:20px;background:#ffffffbf;backdrop-filter:blur(12px);box-shadow:0 5px 25px #cf578e20}
+nav ul{display:flex;justify-content:center;flex-wrap:wrap;gap:25px;list-style:none}
+nav a{font-family:'Playfair Display',serif;color:#bd427d;text-decoration:none;font-size:15px;transition:.3s}
+nav a:hover{color:#ff268b;display:inline-block;transform:translateY(-3px)}
+.container{max-width:850px;margin:auto;padding:70px 20px;animation:muncul 1s ease}
+h1{text-align:center;font-family:'Playfair Display',serif;font-size:clamp(34px,6vw,52px);color:#c94d87;text-shadow:2px 3px white;margin-bottom:12px;animation:melayang 3s infinite}
+h1::before{content:"♡ "}
+h1::after{content:" ♡"}
+.intro{text-align:center;font-size:21px;color:#9b5576;margin-bottom:35px}
+#profilResult{position:relative;overflow:hidden;padding:40px;border-radius:30px;background:#ffffffdc;border:2px solid #ffb9d5;box-shadow:0 20px 50px #c34c8529}
+#profilResult::before{content:"🎀";position:absolute;top:8px;right:20px;font-size:65px;opacity:.2}
+.data-item{position:relative;z-index:1;background:#fff7fb;border:1.5px solid #ffc5dc;border-radius:18px;padding:17px 20px;margin:15px 0;font-size:21px;color:#75405a;overflow-wrap:anywhere;animation:naik .7s ease both;transition:.3s}
+.data-item:hover{transform:translateX(6px);background:#fff0f7}
+.data-item strong{color:#ce4d88;font-family:'Playfair Display',serif}
+.button{display:inline-block;width:100%;margin-top:25px;padding:16px;text-align:center;border-radius:50px;background:linear-gradient(135deg,#ed70a7,#ff9fc5);color:white;text-decoration:none;font-family:'Playfair Display',serif;font-size:19px;box-shadow:0 10px 25px #eb5b973f;transition:.3s}
+.button:hover{transform:translateY(-4px);background:linear-gradient(135deg,#d94c8d,#ff83b5)}
+.button.secondary{background:linear-gradient(135deg,#c94d87,#e875a7)}
+footer{text-align:center;padding:42px 20px;background:linear-gradient(135deg,#e96fa5,#f69ac0);color:white;font-size:18px}
+.floating{position:fixed;bottom:-30px;pointer-events:none;z-index:20;animation:naikAtas linear forwards}
+@keyframes muncul{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+@keyframes naik{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes melayang{50%{transform:translateY(-7px)}}
+@keyframes naikAtas{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+@media(max-width:600px){
+ nav ul{gap:13px}
+ nav a{font-size:13px}
+ .container{padding:45px 15px}
+ #profilResult{padding:25px 18px}
+ .data-item{font-size:18px;padding:15px}
+ .intro{font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<ul>
+    <li>
+        <a href="index.html">♡ Kembali ke Halaman Utama</a>
+    </li>
+
+    <li>
+        <a href="index.html#contact">♡ Contact</a>
+    </li>
+
+    <li>
+        <a href="index.html#works">♡ Works</a>
+    </li>
+
+    <li>
+        <a href="index.html#experience">♡ Experience</a>
+    </li>
+
+    <li>
+        <a href="profil.html">♡ Profile</a>
+    </li>
+
+    <li>
+        <a href="https://www.instagram.com/sucinurulaulya_?vrfl=MXg4bThyNG1xNWszcw=="
+           target="_blank"
+           rel="noopener noreferrer">
+           ♡ Instagram
+        </a>
+    </li>
+
+    <li>♡ LinkedIn</li>
+</ul>
+</nav>
+
+<main class="container">
+<h1>My Pinky Profile</h1>
+<p class="intro">✨ Yeay! Ini dia profil yang sudah kamu isi 💕</p>
+
+<div id="profilResult">
+<p class="data-item">Sedang memuat data profil...</p>
+</div>
+
+<a href="profil.html" class="button">♡ Edit Profil</a>
+<a href="index.html" class="button secondary">♡ Kembali ke Halaman Utama</a>
+</main>
+
+<footer>
+<p>♡ Let's be friends! 💕</p>
+<p>Designed & Developed with love 🎀</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded",function(){
+
+ const hasil=document.getElementById("profilResult");
+ const dataTersimpan=localStorage.getItem("dataProfil");
+
+ if(!dataTersimpan){
+  hasil.innerHTML="";
+  const pesan=document.createElement("p");
+  pesan.className="data-item";
+  pesan.textContent="Data profil belum tersedia. Silakan isi formulir terlebih dahulu ya! 🎀";
+  hasil.appendChild(pesan);
+  return;
+ }
+
+ try{
+  const data=JSON.parse(dataTersimpan);
+
+  const daftarData=[
+   ["NIM",data.nim],
+   ["Nama",data.nama],
+   ["Alamat",data.alamat],
+   ["Hobi",data.hobi],
+   ["Instagram",data.instagram]
+  ];
+
+  hasil.innerHTML="";
+
+  daftarData.forEach(function(item,index){
+   const paragraf=document.createElement("p");
+   paragraf.className="data-item";
+   paragraf.style.animationDelay=(index*.12)+"s";
+
+   const label=document.createElement("strong");
+   label.textContent=item[0]+": ";
+
+   paragraf.appendChild(label);
+   paragraf.appendChild(document.createTextNode(item[1]||"-"));
+
+   hasil.appendChild(paragraf);
+  });
+
+ }catch(error){
+  hasil.innerHTML="";
+  const pesan=document.createElement("p");
+  pesan.className="data-item";
+  pesan.textContent="Maaf, data profil tidak dapat dibaca. Silakan isi ulang formulir.";
+  hasil.appendChild(pesan);
+  console.error(error);
+ }
+
+});
+
+// Hiasan lucu melayang
+const simbol=["♡","💗","💕","🎀","✧","✨"];
+function buatHiasan(){
+ const item=document.createElement("span");
+ item.className="floating";
+ item.textContent=simbol[Math.floor(Math.random()*simbol.length)];
+ item.style.left=Math.random()*100+"vw";
+ item.style.fontSize=(15+Math.random()*20)+"px";
+ item.style.animationDuration=(6+Math.random()*5)+"s";
+ document.body.appendChild(item);
+ setTimeout(()=>item.remove(),12000);
+}
+if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+ setInterval(buatHiasan,1000);
+}
+</script>
+
+</body>
+</html>

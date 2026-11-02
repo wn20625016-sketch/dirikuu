@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Suci 🎀</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+ font-family:'Cormorant Garamond',serif;
+ color:#80516a;min-height:100vh;overflow-x:hidden;
+ background:radial-gradient(circle at 10% 20%,#ffd5e8,transparent 30%),radial-gradient(circle at 90% 80%,#ffc5df,transparent 30%),linear-gradient(135deg,#fff5f9,#ffe2ee,#fff0f6);
+}
+nav{position:sticky;top:0;z-index:10;background:#ffeff7e8;backdrop-filter:blur(12px);padding:18px;box-shadow:0 5px 25px #dc699926}
+nav ul{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;list-style:none}
+nav a{font-family:'Playfair Display',serif;color:#c64e87;text-decoration:none;font-size:15px;transition:.3s}
+nav a:hover{color:#ff4f9a;display:inline-block;transform:translateY(-3px)}
+.container{max-width:850px;margin:auto;padding:65px 20px;animation:muncul 1s ease}
+h1{text-align:center;font-family:'Playfair Display',serif;font-size:clamp(35px,5vw,52px);color:#ce548d;text-shadow:3px 3px white;margin-bottom:10px;animation:melayang 3s infinite}
+.intro{text-align:center;font-size:21px;color:#95647b;margin-bottom:35px}
+form{position:relative;background:#ffffffdf;padding:40px;border-radius:30px;box-shadow:0 20px 50px #d2468229;border:2px solid #ffc4dc;backdrop-filter:blur(10px)}
+form::before{content:"🎀";position:absolute;top:-25px;right:25px;font-size:40px;animation:pita 3s infinite}
+ul{list-style:none}
+form li{margin-bottom:22px}
+label{display:block;margin-bottom:8px;color:#c34d83;font-size:21px;font-weight:700}
+label::before{content:"♡ "}
+input,textarea{width:100%;border:2px solid #f8c1d9;border-radius:16px;padding:14px 17px;font-family:'Cormorant Garamond',serif;font-size:20px;color:#79445e;background:#fff8fb;outline:none;transition:.3s}
+input:focus,textarea:focus{border-color:#e65e9b;background:white;box-shadow:0 0 18px #e65e9b33;transform:translateY(-2px)}
+textarea{resize:vertical;min-height:100px}
+.button{width:100%;border:0;padding:16px;border-radius:50px;background:linear-gradient(135deg,#ed6ca4,#f7a2c5,#e85b98);color:white;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;cursor:pointer;box-shadow:0 10px 25px #ff4f9a40;transition:.3s}
+.button:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 15px 30px #ff4f9a66}
+.note{text-align:center;margin-top:18px;color:#b34e7d;font-size:17px}
+footer{text-align:center;background:linear-gradient(135deg,#f6a5c6,#e875a7,#cf568e);color:white;padding:40px 20px;font-size:18px}
+.floating{position:fixed;bottom:-40px;z-index:20;pointer-events:none;animation:naik linear forwards}
+@keyframes naik{to{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+@keyframes muncul{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:translateY(0)}}
+@keyframes melayang{50%{transform:translateY(-8px)}}
+@keyframes pita{50%{transform:rotate(10deg) scale(1.1)}}
+@media(max-width:600px){
+ nav ul{gap:12px}
+ nav a{font-size:13px}
+ .container{padding:45px 15px}
+ form{padding:25px 20px}
+ label{font-size:19px}
+ input,textarea{font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<ul>
+<li><a href="index.html#contact">♡ Contact</a></li>
+<li><a href="index.html#works">♡ Works</a></li>
+<li><a href="index.html#experience">♡ Experience</a></li>
+<li><a href="profil.html">♡ Profil</a></li>
+</ul>
+</nav>
+
+<main class="container">
+<h1>My Pinky Profile</h1>
+<p class="intro">✨ Isi data diri kamu dan kenalan lebih dekat denganku! 🎀</p>
+
+<form id="profilForm">
+<ul>
+<li>
+<label for="nim">NIM</label>
+<input type="text" id="nim" name="nim" placeholder="Masukkan NIM kamu..." required>
+</li>
+
+<li>
+<label for="nama">Nama</label>
+<input type="text" id="nama" name="nama" placeholder="Nama lengkap..." required>
+</li>
+
+<li>
+<label for="alamat">Alamat</label>
+<textarea id="alamat" name="alamat" rows="3" placeholder="Tulis alamat kamu..." required></textarea>
+</li>
+
+<li>
+<label for="hobi">Hobi</label>
+<input type="text" id="hobi" name="hobi" placeholder="Contoh: memasak, makan, traveling..." required>
+</li>
+
+<li>
+<label for="instagram">Instagram</label>
+<input type="text" id="instagram" name="instagram" placeholder="@username" required>
+</li>
+</ul>
+
+<button type="submit" class="button">Simpan Profil ♡</button>
+<p class="note">Pastikan semua data sudah benar sebelum disimpan 💗</p>
+</form>
+</main>
+
+<footer>
+<p>♡ Let's be friends! 💕</p>
+<p>Designed & Developed with love 🎀</p>
+</footer>
+
+<script>
+const form=document.getElementById("profilForm");
+
+form.addEventListener("submit",function(event){
+ event.preventDefault();
+
+ if(!form.reportValidity()) return;
+
+ const profil={
+  nim:document.getElementById("nim").value.trim(),
+  nama:document.getElementById("nama").value.trim(),
+  alamat:document.getElementById("alamat").value.trim(),
+  hobi:document.getElementById("hobi").value.trim(),
+  instagram:document.getElementById("instagram").value.trim()
+ };
+
+ try{
+  localStorage.setItem("dataProfil",JSON.stringify(profil));
+
+  // Pastikan data berhasil tersimpan
+  const dataTersimpan=localStorage.getItem("dataProfil");
+
+  if(dataTersimpan){
+   window.location.href="profil-tampil.html";
+  }else{
+   alert("Data belum berhasil disimpan. Silakan coba lagi!");
+  }
+ }catch(error){
+  alert("Browser tidak dapat menyimpan data. Coba buka website melalui browser biasa.");
+  console.error(error);
+ }
+});
+
+// Hiasan hati melayang
+const simbol=["♡","💗","💕","🎀","✧","✨"];
+function buatHati(){
+ const hati=document.createElement("span");
+ hati.className="floating";
+ hati.textContent=simbol[Math.floor(Math.random()*simbol.length)];
+ hati.style.left=Math.random()*100+"vw";
+ hati.style.fontSize=(15+Math.random()*20)+"px";
+ hati.style.animationDuration=(6+Math.random()*5)+"s";
+ document.body.appendChild(hati);
+ setTimeout(()=>hati.remove(),12000);
+}
+if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+ setInterval(buatHati,1100);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>♡ My Pink Diary ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700;6..96,800&family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --pink: #ec6fa5;
+    --hot-pink: #ed4f91;
+    --soft-pink: #ffe1ed;
+    --baby-pink: #fff1f6;
+    --rose: #c87594;
+    --dark-rose: #92546d;
+    --white: #fffdfd;
+}
+
+body {
+    font-family: 'Lora', serif;
+    background: var(--baby-pink);
+    color: var(--dark-rose);
+    overflow-x: hidden;
+}
+
+/* BACKGROUND DECORATION */
+body::before {
+    content: "♡";
+    position: fixed;
+    top: 12%;
+    left: 3%;
+    font-size: 120px;
+    color: #f6b6d0;
+    opacity: .25;
+    z-index: -1;
+    animation: floating 5s ease-in-out infinite;
+}
+
+body::after {
+    content: "✿";
+    position: fixed;
+    bottom: 8%;
+    right: 4%;
+    font-size: 110px;
+    color: #f3a6c5;
+    opacity: .2;
+    z-index: -1;
+    animation: rotating 18s linear infinite;
+}
+
+/* NAVIGATION */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 17px;
+    background: rgba(255, 247, 251, .94);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 18px #efc4d5;
+}
+
+nav a {
+    color: var(--rose);
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 700;
+    padding: 7px 14px;
+    border-radius: 30px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: white;
+    background: var(--pink);
+    transform: translateY(-3px);
+}
+
+/* HERO */
+.hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 35px 20px;
+    background:
+        radial-gradient(circle at 15% 20%, #fff 0 2px, transparent 3px),
+        radial-gradient(circle at 80% 30%, #fff 0 2px, transparent 3px),
+        linear-gradient(135deg, #ffc8df, #ffeaf2, #f5c6dc);
+    background-size: 80px 80px, 100px 100px, 300% 300%;
+    animation: gradient 12s ease infinite;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 780px;
+    padding: 60px 40px;
+    background: rgba(255,255,255,.83);
+    border: 2px solid white;
+    border-radius: 120px 120px 35px 35px;
+    box-shadow: 0 12px 35px #eab0ca;
+    animation: appear 1.2s ease;
+}
+
+.hero-decoration {
+    font-size: 35px;
+    margin-bottom: 18px;
+    animation: floating 3s infinite ease-in-out;
+}
+
+.hero h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(38px, 7vw, 75px);
+    font-weight: 700;
+    color: var(--hot-pink);
+    line-height: 1.2;
+    margin-bottom: 20px;
+    text-shadow: 2px 3px 0 #ffd5e5;
+}
+
+.hero p {
+    font-size: 16px;
+    line-height: 2;
+    font-weight: 500;
+    color: #95677c;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 13px 30px;
+    color: white;
+    background: linear-gradient(120deg, #f28bb6, #df6098);
+    border-radius: 40px;
+    text-decoration: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px #eeb6ce;
+    transition: .3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px) scale(1.04);
+    background: #d94d8b;
+}
+
+/* SECTION */
+section {
+    padding: 85px 9%;
+    text-align: center;
+}
+
+.section-label {
+    font-family: 'Cormorant Garamond', serif;
+    color: #d77a9e;
+    font-size: 21px;
+    font-style: italic;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-family: 'Bodoni Moda', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    color: var(--hot-pink);
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.8;
+    color: #a16c83;
+}
+
+/* ABOUT CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 35px 23px;
+    border: 1px solid #f8c9dc;
+    border-radius: 25px;
+    box-shadow: 0 7px 20px #f4d3e1;
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 28px #eab1cb;
+}
+
+.card .emoji {
+    font-size: 43px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 27px;
+    font-weight: 700;
+    color: var(--pink);
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* QUOTE */
+.quote {
+    max-width: 750px;
+    margin: 50px auto 0;
+    padding: 35px;
+    background: #ffe0ed;
+    border-radius: 25px;
+    border: 1px dashed #e88caf;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #b95e83;
+}
+
+/* FAVORITES */
+.favorites {
+    background: #ffe7f0;
+}
+
+.favorite-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.favorite-item {
+    padding: 25px 15px;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 5px 16px #edc3d6;
+    transition: .3s;
+}
+
+.favorite-item:hover {
+    transform: translateY(-7px) rotate(-2deg);
+}
+
+.favorite-item span {
+    font-size: 38px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.favorite-item p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--rose);
+}
+
+/* GALLERY */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 310px;
+    object-fit: cover;
+    border: 8px solid white;
+    border-radius: 20px;
+    box-shadow: 0 7px 22px #e9b5ca;
+    transition: .4s;
+}
+
+.gallery img:hover {
+    transform: scale(1.04) rotate(2deg);
+}
+
+/* DREAMS */
+.dreams {
+    background: linear-gradient(135deg, #ffe5ef, #fff5f8);
+}
+
+.dream-box {
+    max-width: 750px;
+    margin: auto;
+    padding: 40px;
+    background: white;
+    border-radius: 30px;
+    border: 1px solid #f5c6da;
+    box-shadow: 0 8px 25px #edc8d9;
+    line-height: 2;
+    font-size: 15px;
+}
+
+.dream-box .big-emoji {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+/* CONTACT */
+.contact-box {
+    max-width: 650px;
+    margin: auto;
+    padding: 40px 25px;
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 8px 25px #edc8d9;
+    line-height: 2;
+}
+
+/* FOOTER */
+footer {
+    padding: 35px 20px;
+    text-align: center;
+    background: linear-gradient(120deg, #ed82ad, #d95c91);
+    color: white;
+    line-height: 2;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.heart {
+    display: inline-block;
+    color: #fff0a6;
+    font-size: 25px;
+    animation: heartbeat 1s infinite;
+}
+
+/* FALLING DECORATIONS */
+.floating {
+    position: fixed;
+    top: -30px;
+    z-index: 999;
+    pointer-events: none;
+    animation: fall 5s linear forwards;
+}
+
+/* ANIMATIONS */
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes rotating {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes heartbeat {
+    50% { transform: scale(1.4); }
+}
+
+@keyframes gradient {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* RESPONSIVE */
+@media(max-width: 600px) {
+    nav {
+        gap: 3px;
+        padding: 12px 5px;
+    }
+
+    nav a {
+        font-size: 16px;
+        padding: 7px 9px;
+    }
+
+    .hero-content {
+        padding: 45px 20px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    section {
+        padding: 65px 7%;
+    }
+
+    .gallery img {
+        height: 250px;
+    }
+
+    .quote {
+        font-size: 21px;
+        padding: 25px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">♡ Kembali ke Halaman Utama</a>
+    <a href="#home">♡ Beranda</a>
+    <a href="#about">♡ Tentang</a>
+    <a href="#favorites">♡ Favorit</a>
+    <a href="#gallery">♡ Galeri</a>
+    <a href="#dreams">♡ Impian</a>
+    <a href="#contact">♡ Kontak</a>
+</nav>
+<!-- HERO -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <div class="hero-decoration">🎀 ♡ 🌷</div>
+
+        <h1>My Sweet Little World</h1>
+
+        <p>
+            Halo, selamat datang di dunia kecilku!<br>
+            Sebuah tempat yang penuh dengan cerita,
+            warna pink, impian manis, 
+            dan kebahagiaan yang ingin ku capai.
+            <br>Semoga kamu betah di sini. ♡
+        </p>
+
+        <a href="#about" class="btn">Jelajahi Duniaku ♡</a>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <div class="section-label">♡ welcome to my diary ♡</div>
+    <h2 class="section-title">Tentang Diriku</h2>
+
+    <p class="section-subtitle">
+        Sedikit cerita tentang seseorang yang suka
+        keindahan dalam hal-hal sederhana. 🌸
+    </p>
+
+    <div class="cards">
+        <div class="card">
+            <div class="emoji">🎀</div>
+            <h3>Kepribadianku</h3>
+            <p>
+                Aku suka hal-hal lucu, warna cantik,
+                dan suasana yang membuat hati bahagia.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🌷</div>
+            <h3>Kreativitasku</h3>
+            <p>
+                Senang mencoba hal baru, berkreasi,
+                dan menciptakan sesuatu yang indah.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">🧸</div>
+            <h3>Perjalananku</h3>
+            <p>
+                Terus belajar, tumbuh, dan menikmati
+                setiap proses dalam kehidupan.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="emoji">💌</div>
+            <h3>Kebahagiaanku</h3>
+            <p>
+                Momen sederhana, orang tersayang,
+                dan kenangan yang tidak terlupakan.
+            </p>
+        </div>
+    </div>
+
+    <div class="quote">
+        “Hidup tidak harus selalu sempurna,
+        cukup jadikan setiap harinya penuh warna.” ♡
+    </div>
+</section>
+
+<!-- FAVORITES -->
+<section class="favorites" id="favorites">
+    <div class="section-label">♡ little things i love ♡</div>
+    <h2 class="section-title">Hal Favoritku</h2>
+
+    <p class="section-subtitle">
+        Beberapa hal kecil yang selalu membuatku tersenyum.
+    </p>
+
+    <div class="favorite-grid">
+        <div class="favorite-item">
+            <span>🎀</span>
+            <p>Warna Pink</p>
+        </div>
+
+        <div class="favorite-item">
+            <span>🌸</span>
+            <p>Bunga Cantik</p>
+        </div>
+
+        <div class="favorite-item">
+            <span>🧋</span>
+            <p>Minuman Favorit</p>
+        </div>
+
+        <div class="favorite-item">
+            <span>🎧</span>
+            <p>Mendengarkan Musik</p>
+        </div>
+
+        <div class="favorite-item">
+            <span>📸</span>
+            <p>Fotografi</p>
+        </div>
+
+        <div class="favorite-item">
+            <span>🩰</span>
+            <p>Hal Aesthetic</p>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+    <div class="section-label">♡ Dream Gallery ♡</div>
+    <h2 class="section-title">Galeri impian</h2>
+
+    <p class="section-subtitle">
+        hal besar yang ingin ku capai 📷
+    </p>
+
+    <div class="gallery">
+        <img src="suci5.jpg" alt="Kenangan pertama">
+        <img src="suci6.jpg" alt="Kenangan kedua">
+        <img src="suci7.jpg" alt="Kenangan ketiga">
+    </div>
+</section>
+
+<!-- DREAMS -->
+<section class="dreams" id="dreams">
+    <div class="section-label">♡ a little dreamer ♡</div>
+    <h2 class="section-title">Impian dan Harapan</h2>
+
+    <div class="dream-box">
+        <div class="big-emoji">🦢</div>
+
+        <p>
+            Aku ingin terus berkembang menjadi pribadi
+            yang lebih baik, berani mencoba hal baru,
+            membahagiakan orang-orang tersayang,
+            dan mewujudkan semua impian satu per satu.
+        </p>
+
+        <p>
+            Pelan-pelan tidak apa-apa,
+            selama aku tidak berhenti melangkah. ♡
+        </p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="section-label">♡ send some love ♡</div>
+    <h2 class="section-title">Mari Berteman!</h2>
+
+    <div class="contact-box">
+        <p>
+            Terima kasih sudah mengunjungi
+            halaman kecilku.
+            Semoga harimu selalu manis
+            seperti bunga yang sedang bermekaran. 🌷
+        </p>
+
+        <a href="mailto:hello@example.com" class="btn">
+            Kirim Pesan ♡
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Dibuat dengan <span class="heart">♥</span> dan penuh cinta</p>
+    <p>♡ My Sweet Pink Diary ♡</p>
+    <p>© 2026 — All Pink Things</p>
+</footer>
+
+<script>
+// HUJAN HATI DAN BUNGA
+function createFloating() {
+    const items = ["♡", "🌸", "🎀", "💕", "✧", "🌷"];
+
+    const el = document.createElement("span");
+    el.className = "floating";
+    el.textContent = items[Math.floor(Math.random() * items.length)];
+
+    el.style.left = Math.random() * 100 + "vw";
+    el.style.fontSize = (15 + Math.random() * 18) + "px";
+    el.style.animationDuration = (4 + Math.random() * 3) + "s";
+
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 7000);
+}
+
+setInterval(createFloating, 900);
+
+// EFEK KLIK GLITTER
+document.addEventListener("click", function(e) {
+    const sparkle = document.createElement("span");
+
+    sparkle.textContent = "✧";
+    sparkle.style.position = "fixed";
+    sparkle.style.left = e.clientX + "px";
+    sparkle.style.top = e.clientY + "px";
+    sparkle.style.fontSize = "25px";
+    sparkle.style.color = "#ec6fa5";
+    sparkle.style.pointerEvents = "none";
+    sparkle.style.zIndex = "9999";
+
+    document.body.appendChild(sparkle);
+
+    sparkle.animate([
+        { transform: "scale(0) rotate(0deg)", opacity: 1 },
+        { transform: "scale(2) rotate(90deg)", opacity: 0 }
+    ], {
+        duration: 650,
+        easing: "ease-out"
+    });
+
+    setTimeout(() => sparkle.remove(), 650);
+});
+</script>
+
+</body>
+</html>
